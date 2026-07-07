@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TextBit — Fast, native text &amp; code editor for macOS</title>
+<meta name="description" content="TextBit is a fast, native macOS text and code editor. Open 500 MB files in seconds, with multi-caret editing, regex find-in-files, and 15-language syntax highlighting. Free 30-day trial.">
+<link rel="icon" href="/textbit/favicon.svg" type="image/svg+xml">
+<style>
+  :root{
+    --blue1:#389BFE; --blue2:#177EED; --accent:#1E86ED;
+    --ink:#1d1d1f; --muted:#5f6672; --bg:#ffffff; --soft:#f5f7fa;
+    --line:#e6e9ee; --card:#ffffff;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --ink:#f2f4f8; --muted:#a3aab8; --bg:#0f1115; --soft:#161922;
+           --line:#262b36; --card:#161922; --accent:#5aa9f5; }
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+       color:var(--ink);background:var(--bg);line-height:1.55;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:960px;margin:0 auto;padding:0 24px}
+  header{position:sticky;top:0;z-index:10;backdrop-filter:saturate(180%) blur(14px);
+        background:color-mix(in srgb, var(--bg) 80%, transparent);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:600;color:var(--ink)}
+  .brand svg{width:30px;height:30px;border-radius:7px;display:block}
+  .nav a.navlink{color:var(--muted);font-size:15px;margin-left:22px}
+  .hero{text-align:center;padding:72px 0 56px}
+  .hero .icon{width:104px;height:104px;border-radius:23px;margin:0 auto 22px;display:block;
+        box-shadow:0 12px 30px rgba(23,126,237,.28)}
+  h1{font-size:44px;line-height:1.1;margin:0 0 10px;letter-spacing:-.02em}
+  .tagline{font-size:21px;color:var(--muted);margin:0 0 6px}
+  .byline{font-size:14px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:28px}
+  .cta{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(180deg,var(--blue1),var(--blue2));
+        color:#fff;font-weight:600;font-size:17px;padding:14px 26px;border-radius:12px;border:0;cursor:pointer}
+  .cta:hover{text-decoration:none;filter:brightness(1.04)}
+  .cta-note{display:block;margin-top:12px;font-size:13px;color:var(--muted)}
+  .section{padding:44px 0;border-top:1px solid var(--line)}
+  .section h2{font-size:28px;letter-spacing:-.01em;margin:0 0 22px;text-align:center}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .feat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+  .feat h3{margin:0 0 6px;font-size:17px}
+  .feat p{margin:0;color:var(--muted);font-size:15px}
+  .feat .ic{width:34px;height:34px;border-radius:9px;background:linear-gradient(180deg,var(--blue1),var(--blue2));
+        display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;margin-bottom:12px;font-size:18px}
+  .price{max-width:520px;margin:0 auto;text-align:center;background:var(--soft);border:1px solid var(--line);
+        border-radius:16px;padding:32px}
+  .price .amt{font-size:40px;font-weight:700;letter-spacing:-.02em}
+  .price .amt span{font-size:17px;font-weight:500;color:var(--muted)}
+  .price ul{list-style:none;padding:0;margin:18px 0 0;text-align:left;display:inline-block}
+  .price li{padding:6px 0 6px 28px;position:relative;color:var(--ink)}
+  .price li::before{content:"✓";position:absolute;left:0;color:var(--accent);font-weight:700}
+  footer{border-top:1px solid var(--line);padding:30px 0;color:var(--muted);font-size:14px}
+  .foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px}
+  .foot nav a{margin-left:18px}
+  @media (max-width:720px){
+    h1{font-size:34px}.grid{grid-template-columns:1fr}.hero{padding:52px 0 40px}
+    .nav a.navlink:first-of-type{margin-left:0}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <span class="brand">
+      <svg viewBox="0 0 100 100" aria-hidden="true"><defs><linearGradient id="n" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#389BFE"/><stop offset="1" stop-color="#177EED"/></linearGradient></defs><rect width="100" height="100" rx="18.5" fill="url(#n)"/><g fill="#fff"><rect x="39.05" y="21.3" width="21.9" height="5" rx="2.5"/><rect x="44.55" y="29.95" width="10.9" height="10.9" rx="2.4"/><rect x="44.55" y="44.65" width="10.9" height="10.9" rx="2.4"/><rect x="44.55" y="59.15" width="10.9" height="10.9" rx="2.4" fill="#D5E8FC"/><rect x="39.05" y="73.7" width="21.9" height="5" rx="2.5"/></g></svg>
+      TextBit
+    </span>
+    <nav>
+      <a class="navlink" href="#features">Features</a>
+      <a class="navlink" href="#pricing">Pricing</a>
+      <a class="navlink" href="/textbit/support">Support</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero wrap">
+    <svg class="icon" viewBox="0 0 100 100" aria-label="TextBit icon"><defs><linearGradient id="h" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#389BFE"/><stop offset="1" stop-color="#177EED"/></linearGradient></defs><rect width="100" height="100" rx="18.5" fill="url(#h)"/><g fill="#fff"><rect x="39.05" y="21.3" width="21.9" height="5" rx="2.5"/><rect x="44.55" y="29.95" width="10.9" height="10.9" rx="2.4"/><rect x="44.55" y="44.65" width="10.9" height="10.9" rx="2.4"/><rect x="44.55" y="59.15" width="10.9" height="10.9" rx="2.4" fill="#D5E8FC"/><rect x="39.05" y="73.7" width="21.9" height="5" rx="2.5"/></g></svg>
+    <h1>TextBit</h1>
+    <p class="tagline">Fast, native text &amp; code editor for macOS</p>
+    <p class="byline">by Hoverbit</p>
+    <!-- Once the app is approved, replace href="#" with your Mac App Store URL
+         and swap this button for Apple's official "Download on the Mac App Store" badge. -->
+    <a class="cta" href="#">Coming soon to the Mac App Store</a>
+    <span class="cta-note">Free download · 30-day trial · one-time $4.99 unlock</span>
+  </section>
+
+  <section class="section" id="features">
+    <div class="wrap">
+      <h2>Built for big files. Made for macOS.</h2>
+      <div class="grid">
+        <div class="feat"><div class="ic">⚡</div><h3>Opens huge files fast</h3><p>200–500 MB logs and data dumps open in seconds and stay responsive while you scroll, search, and edit.</p></div>
+        <div class="feat"><div class="ic">⌘</div><h3>A real code editor</h3><p>Multiple cursors, column selection, line operations, line numbers, current-line highlight, and visible whitespace.</p></div>
+        <div class="feat"><div class="ic">/.*/</div><h3>Powerful search</h3><p>Find &amp; Replace with full regular-expression support, plus Find in Files across an entire folder.</p></div>
+        <div class="feat"><div class="ic">15</div><h3>Syntax highlighting</h3><p>Automatic highlighting for 15 languages, detected by file type with a manual override menu.</p></div>
+        <div class="feat"><div class="ic">↹</div><h3>Any text, any platform</h3><p>Automatic encoding detection (UTF-8, UTF-16 and more) and line-ending conversion between LF, CRLF, and CR.</p></div>
+        <div class="feat"><div class="ic">◧</div><h3>Tabs &amp; session restore</h3><p>Tabbed editing, a command palette, native light/dark appearance, and reopen right where you left off.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap" style="text-align:center;max-width:680px">
+      <h2>Private by design</h2>
+      <p style="color:var(--muted);font-size:17px">TextBit runs fully sandboxed and touches only the files you open. No accounts, no telemetry, no tracking, and no network calls of its own. Your files never leave your Mac.</p>
+    </div>
+  </section>
+
+  <section class="section" id="pricing">
+    <div class="wrap">
+      <h2>Simple pricing</h2>
+      <div class="price">
+        <div class="amt">$4.99 <span>one-time</span></div>
+        <ul>
+          <li>Free download with a full 30-day trial</li>
+          <li>Every feature works during the trial</li>
+          <li>One-time unlock — no subscription</li>
+          <li>All future updates included</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© 2026 Hoverbit. All rights reserved.</span>
+    <nav>
+      <a href="/textbit">Home</a>
+      <a href="/textbit/support">Support</a>
+      <a href="/textbit/privacy">Privacy</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>
